@@ -12,8 +12,6 @@
 </head>
 
 <body>
-    {{-- cara lama --}}
-    {{-- @livewire('users') --}}
     <livewire:users />
 </body>
 
