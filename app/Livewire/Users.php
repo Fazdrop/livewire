@@ -30,6 +30,9 @@ class Users extends Component
     #[Validate('image|nullable|max:5000')]
     public $avatar;
 
+    //tempat untuk nampung search
+    public $search;
+
     // tempat untuk menyimpan user random
     public $randomUser;
 
@@ -55,8 +58,9 @@ class Users extends Component
         $validated = $this->validate();
 
         if ($this->avatar) {
-            $validated['avatar'] = $this->avatar->store('avatars', 'public');
+            $validated['avatar'] = $this->avatar->store('avatar', 'public');
         }
+
         User::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -64,16 +68,33 @@ class Users extends Component
             'avatar' => $validated['avatar'],
         ]);
         // reset input field setelah submit
-        $this->reset(['name', 'email', 'password','avatar']);
+        $this->reset(['name', 'email', 'password', 'avatar']);
 
         session()->flash('success', 'User created successfully.');
+    }
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+    public function searchUsers()
+    {
+        $this->resetPage();
+    }
+
+    public function clearAvatar()
+    {
+        $this->avatar = null;
     }
 
 
     public function render()
     {
+
+        // dd( $this->avatar);
         return view('livewire.users', [
-            'users' => User::paginate(7),
+            'users' => User::latest()
+            ->where('name', 'like', "%{$this->search}%")
+            ->paginate(7),
         ]);
     }
 }

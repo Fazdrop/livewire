@@ -19,6 +19,7 @@ class Counter extends Component
 
     public function render()
     {
+        
         return view('livewire.counter',[
             'title' => 'Counter Livewire Laravel 12'
         ]);
