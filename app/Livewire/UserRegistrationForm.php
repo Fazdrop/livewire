@@ -25,6 +25,11 @@ class UserRegistrationForm extends Component
     #[Validate('image|nullable|max:5000')]
     public $avatar;
 
+    public function showRandomUser()
+    {
+        // $this->randomUser = User::get()->random();
+        $this->randomUser = User::inRandomOrder()->first();
+    }
     // membuat user baru dari inputan form(userRegister)
     public function createUser()
     {
