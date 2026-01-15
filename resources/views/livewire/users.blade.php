@@ -9,12 +9,11 @@
             </div>
         </div>
 
+        {{-- GRID UTAMA: 1 KIRI (FORM & RANDOM USER) + 2 KANAN (DATA TABLE & NEW USERS) --}}
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
             {{-- KOLOM KIRI: FORM & RANDOM USER (Side Control) --}}
             <div class="lg:col-span-1 space-y-6">
-
-                {{-- KARTU 1: RANDOM USER --}}
+                {{-- KARTU 1: RANDOM USER user-show random--}}
                 <div
                     class="overflow-hidden rounded-xl border border-gray-200 shadow-sm bg-white transition-all hover:shadow-md">
                     <div class="border-b border-gray-100 py-3 px-5 bg-white flex justify-between items-center">
@@ -47,7 +46,7 @@
                 </div>
 
                 {{-- KARTU 3: REGISTER FORM --}}
-                <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm bg-white">
+                <div class="overflow-hidden -xl border border-gray-200 shadow-sm bg-white">
                     <div class="border-b border-gray-100 py-3 px-5 bg-white">
                         <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wider">Register Member</h3>
                     </div>
